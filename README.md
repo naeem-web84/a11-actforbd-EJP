@@ -1,12 +1,74 @@
-# React + Vite
+ # 🌱 ActForBD – Empowering Communities, One Event at a Time
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A platform to create, join, and manage **social service events** across Bangladesh 🌍. From cleanup drives to tree plantations and donation programs — let’s build a better community together. 🇧🇩
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Site
 
-## Expanding the ESLint configuration
+🔗 [https://actforbd.web.app](https://actforbd.web.app)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📁 **Client Repository**: [https://github.com/naeem-web84/a11-actforbd-EJP](https://github.com/naeem-web84/a11-actforbd-EJP)  
+📁 **Server Repository**: [https://github.com/naeem-web84/a11-actforbd-server-EJP](https://github.com/naeem-web84/a11-actforbd-server-EJP)
+
+---
+
+## 🖼️ Project Preview
+
+![ActForBD Preview](https://raw.githubusercontent.com/naeem-web84/a11-actforbd-server-EJP/refs/heads/main/Screenshot%202025-06-25%20142549.png)
+
+---
+
+## ✨ Key Features
+
+- 🔐 **Secure Authentication** using Firebase (Email & Google)
+- 🧾 **JWT-Protected Routes** to ensure secure event access
+- 📅 **Create & Manage Events** with validation & real-time feedback
+- 🧑‍🤝‍🧑 **Join Events** and track participation with stored data
+- 📍 **Upcoming Events Page** only shows future-dated events
+- 🔎 **Search & Filter by Event Type/Title** via MongoDB API
+- 🎨 **Theme Toggle** (Dark/Light) to match user preference
+- 📧 **Newsletter Section**, static gallery, & featured info
+- 🔄 **Pagination**, animations, and loading spinners for UX
+
+---
+
+## 🛠️ Tech Stack
+
+### 💻 Client
+
+- React.js (Vite)
+- Firebase Authentication
+- React Router DOM
+- React Hook Form
+- React Datepicker
+- Tailwind CSS + DaisyUI
+- Framer Motion + SweetAlert2 + Toast
+- Deployed on **Firebase**
+
+### 🌐 Server
+
+- Node.js + Express.js
+- MongoDB + Mongoose
+- JSON Web Token (JWT)
+- dotenv & CORS
+- Deployed on **Vercel**
+
+---
+
+## 🗂 Folder Structure
+
+```bash
+client/
+├── components/
+├── pages/
+├── layout/
+├── context/
+├── routes/
+
+server/
+├── index.js
+├── routes/
+├── controllers/
+├── middleware/
+└── models/
