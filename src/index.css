@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* ✅ Use native CSS for the body */
+body {
+  font-family: 'Poppins', sans-serif;
+}
