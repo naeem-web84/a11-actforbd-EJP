@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "1",
+    "title": "Tree Plantation Drive",
+    "thumbnail": "/images/tree.jpg",
+    "description": "Join local volunteers to plant trees across urban spaces and rural schools."
+  },
+  {
+    "_id": "2",
+    "title": "Road Cleanup Mission",
+    "thumbnail": "/images/cleanup.jpg",
+    "description": "Clean streets, safer communities. Participate in the Mirpur 10 cleanup!"
+  },
+  {
+    "_id": "3",
+    "title": "Blood Donation Camp",
+    "thumbnail": "/images/blood.jpg",
+    "description": "Save lives by donating blood at our upcoming Kishoreganj camp."
+  },
+  {
+    "_id": "4",
+    "title": "Food for All Initiative",
+    "thumbnail": "/images/food.jpg",
+    "description": "Distribute food packs to underprivileged families this weekend."
+  },
+  {
+    "_id": "5",
+    "title": "Beach Cleanup Campaign",
+    "thumbnail": "/images/beach_cleanup.jpg",
+    "description": "Help restore coastal beauty with our community cleanup initiative."
+  },
+  {
+    "_id": "6",
+    "title": "Education Support Program",
+    "thumbnail": "/images/education.jpg",
+    "description": "Provide books and supplies to children in need."
+  },
+  {
+    "_id": "7",
+    "title": "Health Awareness Drive",
+    "thumbnail": "/images/health.jpg",
+    "description": "Attend workshops to learn about preventive health measures."
+  },
+  {
+    "_id": "8",
+    "title": "Community Sports Day",
+    "thumbnail": "/images/sports.jpg",
+    "description": "Join fun sports events and promote fitness in your area."
+  }
+]

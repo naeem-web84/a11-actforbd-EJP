@@ -85,7 +85,7 @@ const Navbar = () => {
 
   return (
     <div
-      className="navbar shadow-md px-4 md:px-8"
+      className="navbar shadow-md px-4 md:px-8 sticky top-0 z-50"
       style={{ backgroundColor: '#1F2937', color: '#E5E7EB' }}
     >
       <div className="navbar-start">
