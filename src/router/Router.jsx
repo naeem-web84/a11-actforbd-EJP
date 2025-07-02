@@ -15,6 +15,7 @@ import UpdateEvents from "../pages/ManageEvent/UpdateEvents";
 import PrivateRoutes from "../routes/PrivateRoutes";
 import ErrorPage from "../pages/shared/ErrorPage";
 import Blogs from "../AllBlogs/Blogs";
+import FeedbackForm from "../pages/Feedback/FeedbackForm";
 
 
 export const router = createBrowserRouter([
@@ -34,6 +35,12 @@ export const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />
+            },
+            {
+                path:"/feedback",
+                element: <PrivateRoutes>
+                    <FeedbackForm></FeedbackForm>
+                </PrivateRoutes>
             },
             {
                 path: "/upcomingEvents",

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
-const HighlightsFromUpcoming = () => {
+const HighlightsSection = () => {
   const [highlights, setHighlights] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     fetch('https://a11-act-for-bd-server.vercel.app/events')
@@ -15,7 +15,7 @@ const HighlightsFromUpcoming = () => {
           .filter(event => event.eventDate >= today)
           .sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
 
-        setHighlights(upcoming.slice(0, 8)); // show top 8 only
+        setHighlights(upcoming.slice(0, 8));
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -34,8 +34,7 @@ const HighlightsFromUpcoming = () => {
         {highlights.map((event) => (
           <div
             key={event._id}
-            onClick={() => setSelected(event)}
-            className="cursor-pointer rounded-xl border px-3 py-4 flex flex-col transition duration-300 hover:shadow-lg overflow-hidden"
+            className="rounded-xl border px-3 py-4 flex flex-col transition duration-300 hover:shadow-lg overflow-hidden"
             style={{
               backgroundColor: '#34495E',
               borderColor: '#E67E22',
@@ -54,45 +53,21 @@ const HighlightsFromUpcoming = () => {
             <p className="text-sm text-[#ECF0F1] opacity-80 flex-1">
               {event.description?.slice(0, 60)}...
             </p>
-            <button
-              className="mt-3 btn btn-xs text-white border-none transition-all duration-300"
-              style={{ backgroundColor: '#FF7E33' }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#E67300')}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#FF7E33')}
-            >
-              See More
-            </button>
+            <Link to={`/events/${event._id}`}>
+              <button
+                className="mt-3 btn btn-xs text-white border-none transition-all duration-300"
+                style={{ backgroundColor: '#FF7E33' }}
+                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#E67300')}
+                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#FF7E33')}
+              >
+                See More
+              </button>
+            </Link>
           </div>
         ))}
       </div>
-
-      {/* Modal */}
-      {selected && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-          <div className="bg-[#1F2937] text-white p-6 rounded-lg w-full max-w-lg relative shadow-xl">
-            <button
-              onClick={() => setSelected(null)}
-              className="absolute top-2 right-3 text-white text-xl"
-            >
-              ✕
-            </button>
-            <img
-              src={selected.thumbnail}
-              alt={selected.title}
-              className="w-full h-48 object-cover rounded mb-4"
-            />
-            <h2 className="text-2xl font-bold mb-2" style={{ color: '#FF7E33' }}>
-              {selected.title}
-            </h2>
-            <p className="text-sm mb-2">
-              <strong>Date:</strong> {selected.eventDate}
-            </p>
-            <p className="text-sm text-[#A9A9A9]">{selected.description}</p>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
 
-export default HighlightsFromUpcoming;
+export default HighlightsSection;
