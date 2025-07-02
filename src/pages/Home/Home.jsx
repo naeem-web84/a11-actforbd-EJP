@@ -8,6 +8,7 @@ import HighlightsSection from "../../components/HighlightsSection";
 import FeedbackForm from "../Feedback/FeedbackForm";
 import GiveFeedbackSection from "../Feedback/GiveFeedbackSection";
 import UpcomingEventsChart from "../UpcomingEventsCalendar/UpcomingEventsChart";
+import Blogs from "../../AllBlogs/Blogs";
 
 const Home = () => {
   useTitle('Home');
@@ -19,6 +20,7 @@ const Home = () => {
       <Feature></Feature>
       <Gallery></Gallery>
       <UpcomingEventsChart></UpcomingEventsChart>
+      <Blogs></Blogs>
       <GiveFeedbackSection></GiveFeedbackSection>
       <NewsLetter></NewsLetter>
     </div>

@@ -58,9 +58,8 @@ const Blogs = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <span className="text-[#FF7E33]">Act</span>
-        <span className="text-gray-800 dark:text-gray-200">ForBD Blogs</span>
-      </motion.h2>
+        <span className="text-[#FF7E33]">Act ForBD Blogs</span>
+       </motion.h2>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs.map((blog) => (

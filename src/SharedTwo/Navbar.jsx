@@ -42,6 +42,16 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
+          to="/campaigns"
+          className={({ isActive }) =>
+            `${isActive ? navItemActiveColor : `${navItemBaseColor} ${navItemHoverColor}`}`
+          }
+        >
+          All Campaigns
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
           to="/createEvents"
           className={({ isActive }) =>
             `${isActive ? navItemActiveColor : `${navItemBaseColor} ${navItemHoverColor}`}`
@@ -68,16 +78,6 @@ const Navbar = () => {
           }
         >
           Joined Events
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/blogs"
-          className={({ isActive }) =>
-            `${isActive ? navItemActiveColor : `${navItemBaseColor} ${navItemHoverColor}`}`
-          }
-        >
-          Blogs
         </NavLink>
       </li>
     </>
@@ -121,13 +121,12 @@ const Navbar = () => {
           </ul>
         </div>
 
-
         <NavLink to="/" className="select-none flex items-center gap-2 overflow-hidden">
           <motion.img
             src="/walking.svg"
             alt="Logo"
             className="w-10 h-10 drop-shadow-md"
-            animate={{ x: [0, 10, 0] }} 
+            animate={{ x: [0, 10, 0] }}
             transition={{
               duration: 4,
               repeat: Infinity,

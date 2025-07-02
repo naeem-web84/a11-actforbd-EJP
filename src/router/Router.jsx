@@ -16,6 +16,7 @@ import PrivateRoutes from "../routes/PrivateRoutes";
 import ErrorPage from "../pages/shared/ErrorPage";
 import Blogs from "../AllBlogs/Blogs";
 import FeedbackForm from "../pages/Feedback/FeedbackForm";
+import AllCampaigns from "../pages/AllCampaigns/AllCampaigns";
 
 
 export const router = createBrowserRouter([
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />
+            },
+            {
+                path: "/campaigns",
+                element: <AllCampaigns></AllCampaigns>
             },
             {
                 path:"/feedback",
