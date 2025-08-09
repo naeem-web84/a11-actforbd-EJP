@@ -7,6 +7,18 @@ import SocialLogin from "../shared/SocialLogin";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import useTitle from "../shared/useTitle";
+import { motion } from "framer-motion"; // ✅ Import Framer Motion
+
+// ✅ Animation Variants
+const leftSlideVariant = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+};
+
+const rightSlideVariant = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+};
 
 const Register = () => {
   useTitle("Register");
@@ -55,7 +67,14 @@ const Register = () => {
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
       <div className="flex flex-col-reverse lg:flex-row items-center justify-center w-full max-w-5xl gap-6">
-         <div className="card bg-base-100 w-full lg:w-1/2 shadow-2xl p-6">
+        
+        {/* Form - slides from left */}
+        <motion.div
+          className="card bg-base-100 w-full lg:w-1/2 shadow-2xl p-6"
+          variants={leftSlideVariant}
+          initial="hidden"
+          animate="visible"
+        >
           <h1
             className="text-4xl font-bold mb-6 text-center lg:text-left"
             style={{ color: "#FF7E33", textShadow: "1px 1px 2px rgba(0,0,0,0.1)" }}
@@ -129,15 +148,22 @@ const Register = () => {
               Login
             </Link>
           </p>
-        </div>
- 
-        <div className="w-full lg:w-1/2 flex justify-center items-center">
+        </motion.div>
+
+        {/* Lottie Animation - slides from right */}
+        <motion.div
+          className="w-full lg:w-1/2 flex justify-center items-center"
+          variants={rightSlideVariant}
+          initial="hidden"
+          animate="visible"
+        >
           <Lottie
             animationData={registerLottie}
             loop={true}
             className="w-3/4 sm:w-2/3 lg:w-full max-w-xs sm:max-w-md lg:max-w-md h-auto"
           />
-        </div>
+        </motion.div>
+
       </div>
     </div>
   );
