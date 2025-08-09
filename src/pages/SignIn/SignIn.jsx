@@ -8,13 +8,14 @@ import Swal from "sweetalert2";
 import useTitle from "../shared/useTitle";
 import { motion } from "framer-motion";
 
+// Animation variants
 const leftSlideVarient = {
   hidden: { opacity: 0, x: -100 },
-  visible: {opacity: 1, x: 0, transition: {duration: 0.8}}
-}
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+};
 
 const rightSlideVariant = {
-  hidden: { opacity: 0, x: 100 }, // start invisible & shifted right
+  hidden: { opacity: 0, x: 100 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
 };
 
@@ -55,11 +56,24 @@ const SignIn = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
+        
+        {/* Lottie Animation - from left */}
+        <motion.div
+          className="text-center lg:text-left"
+          variants={leftSlideVarient}
+          initial="hidden"
+          animate="visible"
+        >
           <Lottie animationData={loginLottie} loop={true} />
-        </div>
+        </motion.div>
 
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        {/* Sign In Form - from right */}
+        <motion.div
+          className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl"
+          variants={rightSlideVariant}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="card-body">
             <h1
               className="text-5xl font-bold text-center"
@@ -107,12 +121,16 @@ const SignIn = () => {
 
             <p className="text-center mt-4 text-sm">
               Don’t have an account?{" "}
-              <Link to="/register" className="text-blue-500 font-semibold hover:underline cursor-pointer">
+              <Link
+                to="/register"
+                className="text-blue-500 font-semibold hover:underline cursor-pointer"
+              >
                 Register
               </Link>
             </p>
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </div>
   );
