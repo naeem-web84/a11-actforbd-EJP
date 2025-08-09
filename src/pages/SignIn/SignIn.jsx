@@ -6,6 +6,17 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import SocialLogin from "../shared/SocialLogin";
 import Swal from "sweetalert2";
 import useTitle from "../shared/useTitle";
+import { motion } from "framer-motion";
+
+const leftSlideVarient = {
+  hidden: { opacity: 0, x: -100 },
+  visible: {opacity: 1, x: 0, transition: {duration: 0.8}}
+}
+
+const rightSlideVariant = {
+  hidden: { opacity: 0, x: 100 }, // start invisible & shifted right
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+};
 
 const SignIn = () => {
   useTitle("SignIn");
