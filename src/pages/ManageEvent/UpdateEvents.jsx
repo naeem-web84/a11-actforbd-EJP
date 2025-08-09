@@ -70,7 +70,7 @@ const UpdateEvents = () => {
 
       if (result.modifiedCount > 0 || result.matchedCount > 0) {
         Swal.fire("Success", "Event updated successfully!", "success");
-        navigate("/manage-events");
+        navigate("/manageEvents");
       } else {
         Swal.fire("Error", "Update failed or you're not authorized.", "error");
       }
