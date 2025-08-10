@@ -5,6 +5,21 @@ import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.15, duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const fieldVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const UpdateEvents = () => {
   const { id } = useParams();
@@ -80,15 +95,26 @@ const UpdateEvents = () => {
   };
 
   return (
-    <div
+    <motion.div
       className="max-w-xl mx-auto p-8 bg-white rounded-3xl shadow-xl border border-orange-300"
       style={{ boxShadow: "0 12px 24px rgba(255, 126, 51, 0.2)" }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
-      <h2 className="text-4xl font-extrabold mb-10 text-center text-[#FF7E33] drop-shadow-md">
+      <motion.h2
+        className="text-4xl font-extrabold mb-10 text-center text-[#FF7E33] drop-shadow-md"
+        variants={fieldVariants}
+      >
         Update Event
-      </h2>
-      <form onSubmit={handleUpdate} className="space-y-7">
-        <input
+      </motion.h2>
+
+      <motion.form
+        onSubmit={handleUpdate}
+        className="space-y-7"
+        variants={containerVariants}
+      >
+        <motion.input
           type="text"
           name="title"
           value={formData.title}
@@ -96,8 +122,9 @@ const UpdateEvents = () => {
           placeholder="Event Title"
           required
           className="input input-bordered w-full rounded-xl border-orange-300 focus:border-[#FF7E33] focus:ring-4 focus:ring-orange-200 transition duration-300"
+          variants={fieldVariants}
         />
-        <textarea
+        <motion.textarea
           name="description"
           value={formData.description}
           onChange={handleChange}
@@ -105,13 +132,15 @@ const UpdateEvents = () => {
           rows={4}
           required
           className="textarea textarea-bordered w-full rounded-xl border-orange-300 focus:border-[#FF7E33] focus:ring-4 focus:ring-orange-200 transition duration-300 resize-none"
+          variants={fieldVariants}
         />
-        <select
+        <motion.select
           name="eventType"
           value={formData.eventType}
           onChange={handleChange}
           required
           className="select select-bordered w-full rounded-xl border-orange-300 focus:border-[#FF7E33] focus:ring-4 focus:ring-orange-200 transition duration-300"
+          variants={fieldVariants}
         >
           <option value="" disabled>
             Select Event Type
@@ -127,8 +156,8 @@ const UpdateEvents = () => {
           <option value="Health Camp">Health Camp</option>
           <option value="Education Outreach">Education Outreach</option>
           <option value="Community Meet-up">Community Meet-up</option>
-        </select>
-        <input
+        </motion.select>
+        <motion.input
           type="text"
           name="thumbnail"
           value={formData.thumbnail}
@@ -136,8 +165,9 @@ const UpdateEvents = () => {
           placeholder="Thumbnail Image URL"
           required
           className="input input-bordered w-full rounded-xl border-orange-300 focus:border-[#FF7E33] focus:ring-4 focus:ring-orange-200 transition duration-300"
+          variants={fieldVariants}
         />
-        <input
+        <motion.input
           type="text"
           name="location"
           value={formData.location}
@@ -145,24 +175,30 @@ const UpdateEvents = () => {
           placeholder="Event Location"
           required
           className="input input-bordered w-full rounded-xl border-orange-300 focus:border-[#FF7E33] focus:ring-4 focus:ring-orange-200 transition duration-300"
+          variants={fieldVariants}
         />
-        <DatePicker
-          selected={eventDate}
-          onChange={setEventDate}
-          placeholderText="Select Event Date"
-          dateFormat="MMMM d, yyyy"
-          minDate={new Date()}
-          required
-          className="input input-bordered w-full rounded-xl border-orange-300 focus:border-[#FF7E33] focus:ring-4 focus:ring-orange-200 transition duration-300"
-        />
-        <button
+        <motion.div variants={fieldVariants}>
+          <DatePicker
+            selected={eventDate}
+            onChange={setEventDate}
+            placeholderText="Select Event Date"
+            dateFormat="MMMM d, yyyy"
+            minDate={new Date()}
+            required
+            className="input input-bordered w-full rounded-xl border-orange-300 focus:border-[#FF7E33] focus:ring-4 focus:ring-orange-200 transition duration-300"
+          />
+        </motion.div>
+        <motion.button
           type="submit"
           className="w-full py-4 mt-6 bg-[#FF7E33] font-extrabold rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 cursor-pointer"
+          variants={fieldVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
         >
           Update Event
-        </button>
-      </form>
-    </div>
+        </motion.button>
+      </motion.form>
+    </motion.div>
   );
 };
 
